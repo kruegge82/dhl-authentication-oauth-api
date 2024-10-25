@@ -60,11 +60,10 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+$prod=false;
 
-
-// Configure Bearer (Apigee) authorization: bearerAuth
-$config = kruegge82\DHLAuth\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
+$config = Configuration::getDefaultConfiguration();
+$config->setHost($config->getHostString($config->getHostSettings(), $prod)); //0=Sandbox 1=Productive
 
 $apiInstance = new kruegge82\DHLAuth\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
