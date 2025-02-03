@@ -253,7 +253,7 @@ class TokenResponse implements ModelInterface, ArrayAccess, JsonSerializable
      *
      * @param array $data Associated array of property values initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(array|null $data = null)
     {
         $this->setIfExists('access_token', $data ?? [], null);
         $this->setIfExists('token_type', $data ?? [], null);
